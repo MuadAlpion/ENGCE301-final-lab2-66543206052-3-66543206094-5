@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-03T09:44:00.000Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="abc123" version="24.7.22" type="device">
+  <diagram name="Task Board Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Security Zones -->
+        <!-- DMZ Zone -->
+        <mxCell id="dmz-zone" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#3b82f6;fillColor=#e3f2fd;strokeWidth=2;opacity=80;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="900" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="dmz-label" value="&lt;div style='font-weight:700;font-size:14px;color:#1976d2'&gt;เขต DMZ (Demilitarized Zone)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Internal Zone -->
+        <mxCell id="internal-zone" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#7b1fa2;fillColor=#f3e5f5;strokeWidth=2;opacity=80;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="900" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="internal-label" value="&lt;div style='font-weight:700;font-size:14px;color:#7b1fa2'&gt;เครือข่ายภายใน (Internal Network)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="900" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Presentation Layer -->
+        <mxCell id="client" value="&lt;div style='font-weight:700;font-size:14px'&gt;ผู้ใช้งาน (Client)&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;Web Browser&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="frontend" value="&lt;div style='font-weight:700;font-size:14px'&gt;แอปพลิเคชันเว็บ (Frontend)&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;index.html, logs.html&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#475569;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Network & Security Layer -->
+        <mxCell id="nginx" value="&lt;div style='font-weight:700;font-size:14px'&gt;Nginx API Gateway&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;Load Balancer, Reverse Proxy&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firewall" value="&lt;div style='font-weight:700;font-size:14px'&gt;ไฟร์วอลล์&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;Security Rules&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="60" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tls" value="&lt;div style='font-weight:700;font-size:14px'&gt;TLS/SSL Termination&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;HTTPS → HTTP&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#22c55e;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="180" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rate-limit" value="&lt;div style='font-weight:700;font-size:14px'&gt;Rate Limiting&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;Login: 5/min, API: 30/min&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#ef4444;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="180" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Application Layer -->
+        <mxCell id="auth-service" value="&lt;div style='font-weight:700;font-size:14px'&gt;Auth Service (3001)&lt;/div&gt;&lt;div style='font-size:12px;color:#666'&gt;การพิสูจน์ตัวตนและสิทธิ์การเข้าถึง&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0ea5e9;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task-service" value="&lt;div style='font-weight:700;font-size:14px'&gt;Task Service (3002)&lt;/div&gt;&lt;div style='font-size:12px;color=#666'&gt;ตรรกะทางธุรกิจ&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="440" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="log-service" value="&lt;div style='font-weight:700;font-size:14px'&gt;Log Service (3003)&lt;/div&gt;&lt;div style='font-size:12px;color=#666'&gt;การบันทึกข้อมูลแบบรวมศูนย์&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e8ff;strokeColor=#8b5cf6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="600" y="440" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Data Layer -->
+        <mxCell id="database" value="&lt;div style='font-weight:700;font-size:14px'&gt;PostgreSQL Database&lt;/div&gt;&lt;div style='font-size:12px;color=#666'&gt;Users, Tasks, Logs&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#475569;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="620" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow Connections -->
+        <!-- Client to Frontend -->
+        <mxCell id="conn1" edge="1" parent="1" source="client" target="frontend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Frontend to Nginx -->
+        <mxCell id="conn2" edge="1" parent="1" source="frontend" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Nginx to TLS -->
+        <mxCell id="conn3" edge="1" parent="1" source="nginx" target="tls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- TLS to Rate Limiting -->
+        <mxCell id="conn4" edge="1" parent="1" source="tls" target="rate-limit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Nginx to Auth Service -->
+        <mxCell id="conn5" edge="1" parent="1" source="nginx" target="auth-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Nginx to Task Service -->
+        <mxCell id="conn6" edge="1" parent="1" source="nginx" target="task-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Nginx to Log Service -->
+        <mxCell id="conn7" edge="1" parent="1" source="nginx" target="log-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Auth Service to Task Service (JWT Validation) -->
+        <mxCell id="conn8" edge="1" parent="1" source="auth-service" target="task-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Auth Service to Log Service (JWT Validation) -->
+        <mxCell id="conn9" edge="1" parent="1" source="auth-service" target="log-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Services to Database -->
+        <mxCell id="conn10" edge="1" parent="1" source="auth-service" target="database">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn11" edge="1" parent="1" source="task-service" target="database">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn12" edge="1" parent="1" source="log-service" target="database">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal Service Communication -->
+        <mxCell id="conn13" edge="1" parent="1" source="task-service" target="log-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="&lt;div style='font-weight:700;font-size:14px'&gt;คำอธิบายสี&lt;/div&gt;&lt;div style='font-size:12px;margin-top:5px'&gt;🔵 ชั้นนำเสนอ (Presentation)&lt;br&gt;🟢 ความปลอดภัย (Security)&lt;br&gt;🟠 การจัดการ (Management)&lt;br&gt;🟣 ข้อมูล (Data)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="100" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
