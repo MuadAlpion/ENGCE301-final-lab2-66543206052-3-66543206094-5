@@ -1088,8 +1088,8 @@
   <script>
     /* ── STATE ── */
     const AUTH_API = window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://auth-production-1800.up.railway.app';
-    const TASK_API = window.location.hostname === 'localhost' ? 'http://localhost:3002' : '';
-    const USER_API = window.location.hostname === 'localhost' ? 'http://localhost:3003' : '';
+    const TASK_API = window.location.hostname === 'localhost' ? 'http://localhost:3002' : 'https://tasks-production-c3dd.up.railway.app';
+    const USER_API = window.location.hostname === 'localhost' ? 'http://localhost:3003' : 'https://users-production-6963.up.railway.app';
     let token = localStorage.getItem('jwt_token');
     let currentUser = null;
     let allTasks = [];
