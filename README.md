@@ -4,6 +4,9 @@
 1. **นางสาว วชิรานีย์ ประเสริฐศรี** รหัสนักศึกษา 66543206052-3
 2. **นายอานุภาพ เฑียรประยูร** รหัสนักศึกษา 66543206094-5
 
+## Architecture Diagram
+[Architecture Diagram](./drawio-architecture.drawio)
+
 ## URL ของ Service บน Production (Railway)
 
 - **Auth Service**: [https://auth-production-1800.up.railway.app](https://auth-production-1800.up.railway.app)
